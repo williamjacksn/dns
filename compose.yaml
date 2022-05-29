@@ -3,6 +3,30 @@ services:
     entrypoint:
       - /bin/sh
     image: ghcr.io/williamjacksn/dns
+    init: true
+    volumes:
+      - ./:/home/python/dns
+    working_dir: /home/python/dns
+
+  sync:
+    entrypoint:
+      - /home/python/venv/bin/octodns-sync
+      - --config-file
+      - ./config/production.yaml
+    image: ghcr.io/williamjacksn/dns
+    init: true
+    volumes:
+      - ./:/home/python/dns
+    working_dir: /home/python/dns
+
+  sync-doit:
+    entrypoint:
+      - /home/python/venv/bin/octodns-sync
+      - --config-file
+      - ./config/production.yaml
+      - --doit
+    image: ghcr.io/williamjacksn/dns
+    init: true
     volumes:
       - ./:/home/python/dns
     working_dir: /home/python/dns
