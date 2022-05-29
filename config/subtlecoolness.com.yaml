@@ -1,0 +1,177 @@
+---
+'':
+  - type: A
+    value: 45.79.10.128
+  - type: MX
+    values:
+      - exchange: aspmx.l.google.com.
+        preference: 10
+      - exchange: alt1.aspmx.l.google.com.
+        preference: 20
+      - exchange: alt2.aspmx.l.google.com.
+        preference: 30
+      - exchange: aspmx2.googlemail.com.
+        preference: 40
+      - exchange: aspmx3.googlemail.com.
+        preference: 50
+  - type: TXT
+    ttl: 3600
+    values:
+      - MS=ms39318768
+      - google-site-verification=RxUAQK2lPrb8l0bltRH-OcplAFQYr-2sL3_xq-CqJxw
+      # mailhop.org is for outboundsmtp.com
+      - v=spf1 include:outbound.mailhop.org ~all
+
+coruscant:
+  - type: A
+    value: 45.79.10.128
+  - type: AAAA
+    value: 2600:3c00::f03c:91ff:fe24:29ee
+
+404:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+acciojacksons:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+birthdayfeed:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+cal:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+### begin outboundsmtp configuration (https://www.outboundsmtp.com/)
+
+duo-1651460024648-8e3e5c59._domainkey:
+  - type: TXT
+    value: v=DKIM1\; k=rsa\; s=email\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLWiBESFejMDydnDE7ERkklPgnUsmXgpOQohtvBaEaNc+KVkXJ+1zxTuQmRzKIdraep9CQ9sz/l2+cymh2wszV/bWBC7AfaRUcSUNd/R0DRUJuomIgL2kHfI2sXI2dVANCnYek3oYfPbm5LcJRY3v6oHUbGJ+Y8iyds6DcyVBQKwIDAQAB
+
+### end outboundsmtp configuration
+
+echoip:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+groupmemail:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+groupmemail-test:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+# hosted on blogspot.com
+he-gave-me-my-ears:
+  - type: CNAME
+    value: ghs.google.com.
+
+junk:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+krs._domainkey.mg:
+  - type: TXT
+    value: k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDXdL1VkQmI026q2KW+mryp0xqaJsMZGxF96QrlaGO5kqFBPuH7SEJEBJWw305bHxsV30XSZwTLHDWVVm6R2PDMowf4ke3LFxPC7Sjbr8lnHWz/goVBZbNkVRkZCwh5LLcufwXI1hY3M/Q1Wkx9oGelJOfAxOEqj2mwL8ZQb+69mwIDAQAB
+
+mail._domainkey:
+  - type: TXT
+    value: k=rsa\;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeMVIzrCa3T14JsNY0IRv5/2V1/v2itlviLQBwXsa7shBD6TrBkswsFUToPyMRWC9tbR/5ey0nRBH0ZVxp+lsmTxid2Y2z+FApQ6ra2VsXfbJP3HE6wAO0YTVEJt1TmeczhEd2Jiz/fcabIISgXEdSpTYJhb0ct0VJRxcg4c8c7wIDAQAB
+
+### begin mailgun configuration
+# groupmemail uses mailgun to send and receive email for *@mg.subtlecoolness.com
+
+email.mg:
+  - type: CNAME
+    value: mailgun.org.
+
+mg:
+  - type: MX
+    values:
+      - exchange: mxa.mailgun.org.
+        preference: 10
+      - exchange: mxb.mailgun.org.
+        preference: 10
+  - type: TXT
+    value: v=spf1 include:mailgun.org ~all
+
+### end mailgun configuration
+
+### begin netlify configuration
+
+accio:
+  - type: CNAME
+    value: accio.netlify.app.
+
+andromeda:
+  - type: CNAME
+    value: demo-andromeda.netlify.app.
+
+blog:
+  - type: CNAME
+    value: blog-subtlecoolness-com.netlify.app.
+
+molly:
+  - type: CNAME
+    value: molly-subtlecoolness-com.netlify.app.
+
+python-rainwave-client:
+  - type: CNAME
+    value: python-rainwave-client.netlify.app.
+
+### end netlify configuration
+
+### begin tailscale configuration
+
+coruscant.ts:
+  - type: A
+    value: 100.67.215.117
+
+raspberrypi.ts:
+  - type: A
+    value: 100.81.7.64
+
+### end tailscale configuration
+
+recipes:
+  - type: CNAME
+    value: jackson-family-recipes.netlify.app.
+
+rss:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+### begin sendgrid configuration
+
+em8786:
+  - type: CNAME
+    value: u25937580.wl081.sendgrid.net.
+
+s1._domainkey:
+  - type: CNAME
+    value: s1.domainkey.u25937580.wl081.sendgrid.net.
+
+s2._domainkey:
+  - type: CNAME
+    value: s2.domainkey.u25937580.wl081.sendgrid.net.
+
+### end sendgrid configuration
+
+silly-sentences:
+  - type: CNAME
+    value: silly-sentences.netlify.app.
+
+wiki:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+www:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
+
+yavin:
+  - type: CNAME
+    value: coruscant.subtlecoolness.com.
