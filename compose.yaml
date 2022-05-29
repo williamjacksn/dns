@@ -1,0 +1,8 @@
+services:
+  shell:
+    entrypoint:
+      - /bin/sh
+    image: ghcr.io/williamjacksn/dns
+    volumes:
+      - ./:/home/python/dns
+    working_dir: /home/python/dns
