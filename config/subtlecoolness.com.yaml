@@ -45,6 +45,9 @@ cal:
     value: coruscant.subtlecoolness.com.
 
 ### begin outboundsmtp configuration (https://www.outboundsmtp.com/)
+# outboundsmtp is a simple smtp service that I set up because I wanted to add smtp settings to my home hp officejet
+# scanner. I would have used sendgrid, but the scanner had a length limit for the smtp password and sendgrid's api key
+# was too long. The password for outboundsmtp is shorter and fits within the length limit on the scanner.
 
 duo-1651460024648-8e3e5c59._domainkey:
   - type: TXT
