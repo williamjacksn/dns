@@ -1,4 +1,14 @@
 services:
+  gen:
+    entrypoint:
+      - /home/python/venv/bin/python
+      - /home/python/dns/gen.py
+    image: ghcr.io/williamjacksn/dns
+    init: true
+    volumes:
+      - ./:/home/python/dns
+    working_dir: /home/python/dns
+
   shell:
     entrypoint:
       - /bin/sh
