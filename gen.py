@@ -1,4 +1,4 @@
-"""This script produces subtlecoolness.com.yaml"""
+"""This script produces configuration files for octodns."""
 
 import json
 
@@ -7,6 +7,8 @@ AAAA = 'AAAA'
 CNAME = 'CNAME'
 MX = 'MX'
 TXT = 'TXT'
+
+### subtlecoolness.com.yaml
 
 root = {}
 
@@ -174,5 +176,82 @@ root.update({
     ]
 })
 
-with open('subtlecoolness.com.yaml', 'w') as f:
+with open('config/subtlecoolness.com.yaml', 'w') as f:
     json.dump(root, f, indent=2, sort_keys=True)
+
+# end subtlecoolness.com.yaml
+
+### lugolandscapingservices.com.yaml
+
+root = {}
+
+root_mx = {
+    'route1.mx.cloudflare.net.': 15,
+    'route2.mx.cloudflare.net.': 64,
+    'route3.mx.cloudflare.net.': 11,
+}
+
+root.update({
+    '': [
+        {
+            'type': MX,
+            'values': [
+                {'exchange': exchange, 'preference': preference}
+                for exchange, preference in root_mx.items()
+            ]
+        },
+        {
+            'type': TXT,
+            'value': 'v=spf1 include:_spf.mx.cloudflare.net ~all',
+        },
+    ],
+    '_dmarc': [
+        {'type': TXT, 'value': 'v=DMARC1\; p=none\; rua=mailto:william@subtlecoolness.com'}
+    ]
+})
+
+with open('config/lugolandscapingservices.com.yaml', 'w') as f:
+    json.dump(root, f, indent=2, sort_keys=True)
+
+### end lugolandscapingservices.com.yaml
+
+### production.yaml
+
+root = {
+    'manager': {
+        'max_workers': 2,
+    },
+    'providers': {
+        'config': {
+            'class': 'octodns.provider.yaml.YamlProvider',
+            'directory': './config',
+            'default_ttl': 300,
+            'enforce_order': False,
+        },
+        'cloudflare': {
+            'class': 'octodns_cloudflare.CloudflareProvider',
+            'token': 'env/CLOUDFLARE_TOKEN',
+        },
+    },
+}
+
+zone_names = [
+    'lugolandscapingservices.com.',
+    'subtlecoolness.com.',
+]
+
+zones = {
+    zone_name: {
+        'sources': ['config'],
+        'targets': ['cloudflare'],
+    }
+    for zone_name in zone_names
+}
+root.update({
+    'zones': zones
+})
+
+with open('config/production.yaml', 'w') as f:
+    json.dump(root, f, indent=2, sort_keys=True)
+
+### end production.yaml

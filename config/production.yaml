@@ -1,25 +1,35 @@
----
-manager:
-  max_workers: 2
-
-providers:
-  config:
-    class: octodns.provider.yaml.YamlProvider
-    directory: ./config
-    default_ttl: 300
-    enforce_order: false
-  cloudflare:
-    class: octodns_cloudflare.CloudflareProvider
-    token: env/CLOUDFLARE_TOKEN
-
-zones:
-  lugolandscapingservices.com.:
-    sources:
-      - config
-    targets:
-      - cloudflare
-  subtlecoolness.com.:
-    sources:
-      - config
-    targets:
-      - cloudflare
+{
+  "manager": {
+    "max_workers": 2
+  },
+  "providers": {
+    "cloudflare": {
+      "class": "octodns_cloudflare.CloudflareProvider",
+      "token": "env/CLOUDFLARE_TOKEN"
+    },
+    "config": {
+      "class": "octodns.provider.yaml.YamlProvider",
+      "default_ttl": 300,
+      "directory": "./config",
+      "enforce_order": false
+    }
+  },
+  "zones": {
+    "lugolandscapingservices.com.": {
+      "sources": [
+        "config"
+      ],
+      "targets": [
+        "cloudflare"
+      ]
+    },
+    "subtlecoolness.com.": {
+      "sources": [
+        "config"
+      ],
+      "targets": [
+        "cloudflare"
+      ]
+    }
+  }
+}
