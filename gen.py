@@ -218,6 +218,7 @@ with open('config/lugolandscapingservices.com.yaml', 'w') as f:
 ### production.yaml
 
 root = {
+    '#': 'generated with gen.py',
     'manager': {
         'max_workers': 2,
     },

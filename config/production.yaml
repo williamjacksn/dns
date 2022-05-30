@@ -1,4 +1,5 @@
 {
+  "#": "generated with gen.py",
   "manager": {
     "max_workers": 2
   },
