@@ -89,6 +89,15 @@
     {
       "type": "AAAA",
       "value": "2600:3c00::f03c:91ff:fe24:29ee"
+    },
+    {
+      "type": "MX",
+      "values": [
+        {
+          "exchange": "coruscant.subtlecoolness.com.",
+          "preference": 10
+        }
+      ]
     }
   ],
   "coruscant.ts": [
