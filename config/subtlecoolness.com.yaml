@@ -130,6 +130,12 @@
       "value": "mailgun.org."
     }
   ],
+  "felucia.ts": [
+    {
+      "type": "A",
+      "value": "100.66.139.64"
+    }
+  ],
   "groupmemail": [
     {
       "type": "CNAME",
