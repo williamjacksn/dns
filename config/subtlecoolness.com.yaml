@@ -203,12 +203,6 @@
       "value": "python-rainwave-client.netlify.app."
     }
   ],
-  "raspberrypi.ts": [
-    {
-      "type": "A",
-      "value": "100.81.7.64"
-    }
-  ],
   "recipes": [
     {
       "type": "CNAME",
@@ -237,6 +231,12 @@
     {
       "type": "CNAME",
       "value": "silly-sentences.netlify.app."
+    }
+  ],
+  "tatooine.ts": [
+    {
+      "type": "A",
+      "value": "100.81.7.64"
     }
   ],
   "wiki": [

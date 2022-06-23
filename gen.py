@@ -81,7 +81,7 @@ for name in [
 tailscale_hosts = {
     'coruscant': '100.67.215.117',
     'felucia': '100.66.139.64',
-    'raspberrypi': '100.81.7.64',
+    'tatooine': '100.81.7.64',
 }
 
 for hostname, ip in tailscale_hosts.items():
