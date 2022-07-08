@@ -81,6 +81,7 @@ for name in [
 tailscale_hosts = {
     'coruscant': '100.67.215.117',
     'felucia': '100.66.139.64',
+    'iego': '100.107.200.103',
     'tatooine': '100.116.13.60',
 }
 

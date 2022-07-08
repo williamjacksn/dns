@@ -154,6 +154,12 @@
       "value": "ghs.google.com."
     }
   ],
+  "iego.ts": [
+    {
+      "type": "A",
+      "value": "100.107.200.103"
+    }
+  ],
   "junk": [
     {
       "type": "CNAME",
