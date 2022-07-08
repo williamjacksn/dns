@@ -82,6 +82,7 @@ tailscale_hosts = {
     'coruscant': '100.67.215.117',  # linode server
     'felucia': '100.66.139.64',  # ipad
     'iego': '100.107.200.103',  # iphone
+    'jakku': '100.110.210.43',  # personal notebook
     'tatooine': '100.116.13.60',  # raspberry pi
 }
 
