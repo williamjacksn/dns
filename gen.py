@@ -79,10 +79,10 @@ for name in [
 ### tailscale
 
 tailscale_hosts = {
-    'coruscant': '100.67.215.117',
-    'felucia': '100.66.139.64',
-    'iego': '100.107.200.103',
-    'tatooine': '100.116.13.60',
+    'coruscant': '100.67.215.117',  # linode server
+    'felucia': '100.66.139.64',  # ipad
+    'iego': '100.107.200.103',  # iphone
+    'tatooine': '100.116.13.60',  # raspberry pi
 }
 
 for hostname, ip in tailscale_hosts.items():
