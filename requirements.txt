@@ -8,17 +8,19 @@
 
 certifi==2022.6.15
     # via requests
-charset-normalizer==2.1.0
+charset-normalizer==2.1.1
     # via requests
 dnspython==2.2.1
     # via octodns
 fqdn==1.5.1
     # via octodns
 idna==3.3
-    # via requests
+    # via
+    #   octodns
+    #   requests
 natsort==8.1.0
     # via octodns
-octodns==0.9.17
+octodns==0.9.19
     # via octodns-cloudflare
 octodns-cloudflare==0.0.1
     # via -r requirements.in
