@@ -18,7 +18,7 @@ idna==3.3
     # via
     #   octodns
     #   requests
-natsort==8.1.0
+natsort==8.2.0
     # via octodns
 octodns==0.9.19
     # via octodns-cloudflare
