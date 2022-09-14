@@ -63,7 +63,6 @@ cname_coruscant = {
 for name in [
     '404',
     'acciojacksons',
-    'birthdayfeed',
     'cal',
     'echoip',
     'groupmemail',
@@ -106,6 +105,17 @@ netlify_sites = {
 for hostname, alias in netlify_sites.items():
     root.update({
         hostname: [{'type': CNAME, 'value': f'{alias}.netlify.app.'}]
+    })
+
+### fly.io
+
+fly_io_sites = {
+    'birthdayfeed': 'birthdayfeed',
+}
+
+for hostname, alias in fly_io_sites.items():
+    root.update({
+        hostname: [{'type': CNAME, 'value': f'{alias}.fly.dev.'}]
     })
 
 ### blogger
