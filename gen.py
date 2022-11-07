@@ -68,6 +68,7 @@ for name in [
     'groupmemail',
     'groupmemail-test',
     'junk',
+    'lpb',
     'rss',
     'wiki',
     'www',

@@ -178,6 +178,12 @@
       "value": "k=rsa\\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDXdL1VkQmI026q2KW+mryp0xqaJsMZGxF96QrlaGO5kqFBPuH7SEJEBJWw305bHxsV30XSZwTLHDWVVm6R2PDMowf4ke3LFxPC7Sjbr8lnHWz/goVBZbNkVRkZCwh5LLcufwXI1hY3M/Q1Wkx9oGelJOfAxOEqj2mwL8ZQb+69mwIDAQAB"
     }
   ],
+  "lpb": [
+    {
+      "type": "CNAME",
+      "value": "coruscant.subtlecoolness.com."
+    }
+  ],
   "mail._domainkey": [
     {
       "type": "TXT",
