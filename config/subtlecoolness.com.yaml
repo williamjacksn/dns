@@ -57,6 +57,12 @@
       "value": "coruscant.subtlecoolness.com."
     }
   ],
+  "adblock": [
+    {
+      "type": "A",
+      "value": "192.168.4.4"
+    }
+  ],
   "andromeda": [
     {
       "type": "CNAME",

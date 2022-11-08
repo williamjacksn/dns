@@ -129,6 +129,15 @@ root.update({
     }]
 })
 
+### local pi-hole
+
+root.update({
+    'adblock': [{
+        'type': A,
+        'value': '192.168.4.4',
+    }]
+})
+
 ### sendgrid
 
 sendgrid_cnames = {
