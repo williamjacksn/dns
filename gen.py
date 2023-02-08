@@ -92,14 +92,24 @@ for hostname, ip in tailscale_hosts.items():
         f'{hostname}.ts': [{'type': A, 'value': ip}]
     })
 
+### github pages
+
+pages_hostnames = [
+    'andromeda',
+    'python-rainwave-client',
+]
+
+for hostname in pages_hostnames:
+    root.update({
+        hostname: [{'type': CNAME, 'value': 'williamjacksn.github.io.'}]
+    })
+
 ### netlify
 
 netlify_sites = {
     'accio': 'accio',
-    'andromeda': 'demo-andromeda',
     'blog': 'blog-subtlecoolness-com',
     'molly': 'molly-subtlecoolness-com',
-    'python-rainwave-client': 'python-rainwave-client',
     'recipes': 'jackson-family-recipes',
     'silly-sentences': 'silly-sentences',
 }
