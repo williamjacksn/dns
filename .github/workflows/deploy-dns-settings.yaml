@@ -25,3 +25,6 @@ jobs:
       - name: Sync dry run
         if: github.event_name == 'pull_request'
         run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync
+      - name: Sync for real
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync-doit
