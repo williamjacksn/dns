@@ -1,0 +1,27 @@
+name: Compile Octocat DNS settings and deploy to production
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - gen.py
+  push:
+    branches:
+      - main
+    paths:
+      - gen.py
+  workflow_dispatch:
+
+jobs:
+  compile:
+    name: Compile Octocat DNS settings
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+      - name: Compile Octocat DNS settings
+        run: docker compose run --no-TTY --user="$(id -u):$(id -g)" gen
+      - name: Sync dry run
+        if: github.event_name == 'pull_request'
+        run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync
