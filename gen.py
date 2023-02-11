@@ -94,15 +94,16 @@ for hostname, ip in tailscale_hosts.items():
 
 ### github pages
 
-pages_hostnames = [
-    'andromeda',
-    'python-rainwave-client',
-    'silly-sentences',
-]
+pages_sites = {
+    'andromeda': 'williamjacksn',
+    'python-rainwave-client': 'williamjacksn',
+    'recipes': 'jackson-family',
+    'silly-sentences': 'williamjacksn',
+}
 
-for hostname in pages_hostnames:
+for hostname, target_org in pages_sites.items():
     root.update({
-        hostname: [{'type': CNAME, 'value': 'williamjacksn.github.io.'}]
+        hostname: [{'type': CNAME, 'value': f'{target_org}.github.io.'}]
     })
 
 ### netlify
@@ -111,7 +112,6 @@ netlify_sites = {
     'accio': 'accio',
     'blog': 'blog-subtlecoolness-com',
     'molly': 'molly-subtlecoolness-com',
-    'recipes': 'jackson-family-recipes',
 }
 
 for hostname, alias in netlify_sites.items():
