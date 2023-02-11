@@ -97,6 +97,7 @@ for hostname, ip in tailscale_hosts.items():
 pages_hostnames = [
     'andromeda',
     'python-rainwave-client',
+    'silly-sentences',
 ]
 
 for hostname in pages_hostnames:
@@ -111,7 +112,6 @@ netlify_sites = {
     'blog': 'blog-subtlecoolness-com',
     'molly': 'molly-subtlecoolness-com',
     'recipes': 'jackson-family-recipes',
-    'silly-sentences': 'silly-sentences',
 }
 
 for hostname, alias in netlify_sites.items():
