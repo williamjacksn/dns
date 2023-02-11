@@ -101,7 +101,7 @@ pages_sites = {
     'silly-sentences': 'williamjacksn',
 }
 
-for hostname, target_org in pages_sites:
+for hostname, target_org in pages_sites.items():
     root.update({
         hostname: [{'type': CNAME, 'value': f'{target_org}.github.io.'}]
     })
