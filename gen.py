@@ -97,7 +97,7 @@ for hostname, ip in tailscale_hosts.items():
 pages_sites = {
     'andromeda': 'williamjacksn',
     'python-rainwave-client': 'williamjacksn',
-    'recipes': 'jackson-family,
+    'recipes': 'jackson-family',
     'silly-sentences': 'williamjacksn',
 }
 
