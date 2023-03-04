@@ -97,6 +97,7 @@ for hostname, ip in tailscale_hosts.items():
 pages_sites = {
     'accio': 'jackson-family',
     'andromeda': 'williamjacksn',
+    'blog': 'williamjacksn',
     'molly': 'jackson-family',
     'python-rainwave-client': 'williamjacksn',
     'recipes': 'jackson-family',
@@ -106,17 +107,6 @@ pages_sites = {
 for hostname, target_org in pages_sites.items():
     root.update({
         hostname: [{'type': CNAME, 'value': f'{target_org}.github.io.'}]
-    })
-
-### netlify
-
-netlify_sites = {
-    'blog': 'blog-subtlecoolness-com',
-}
-
-for hostname, alias in netlify_sites.items():
-    root.update({
-        hostname: [{'type': CNAME, 'value': f'{alias}.netlify.app.'}]
     })
 
 ### fly.io
