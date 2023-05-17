@@ -99,6 +99,7 @@ pages_sites = {
     'andromeda': 'williamjacksn',
     'blog': 'williamjacksn',
     'molly': 'jackson-family',
+    'obs': 'williamjacksn',
     'python-rainwave-client': 'williamjacksn',
     'recipes': 'jackson-family',
     'silly-sentences': 'williamjacksn',
