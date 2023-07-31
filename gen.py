@@ -169,40 +169,6 @@ with open('config/subtlecoolness.com.yaml', 'w') as f:
 
 # end subtlecoolness.com.yaml
 
-### lugolandscapingservices.com.yaml
-
-root = {}
-
-root_mx = {
-    'route1.mx.cloudflare.net.': 15,
-    'route2.mx.cloudflare.net.': 64,
-    'route3.mx.cloudflare.net.': 11,
-}
-
-root.update({
-    '': [
-        {
-            'type': MX,
-            'values': [
-                {'exchange': exchange, 'preference': preference}
-                for exchange, preference in root_mx.items()
-            ]
-        },
-        {
-            'type': TXT,
-            'value': 'v=spf1 include:_spf.mx.cloudflare.net ~all',
-        },
-    ],
-    '_dmarc': [
-        {'type': TXT, 'value': 'v=DMARC1\; p=none\; rua=mailto:william@subtlecoolness.com'}
-    ]
-})
-
-with open('config/lugolandscapingservices.com.yaml', 'w') as f:
-    json.dump(root, f, indent=2, sort_keys=True)
-
-### end lugolandscapingservices.com.yaml
-
 ### production.yaml
 
 root = {
@@ -225,7 +191,6 @@ root = {
 }
 
 zone_names = [
-    'lugolandscapingservices.com.',
     'subtlecoolness.com.',
 ]
 
