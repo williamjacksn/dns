@@ -97,6 +97,7 @@ for hostname, ip in tailscale_hosts.items():
 
 tailscale_cnames = {
     'music': 'yavin',
+    'photos': 'yavin',
 }
 
 for hostname, target in tailscale_cnames.items():
