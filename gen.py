@@ -69,7 +69,6 @@ for name in [
     'groupmemail-test',
     'junk',
     'lpb',
-    'music',
     'rss',
     'wiki',
     'www',
@@ -92,6 +91,17 @@ tailscale_hosts = {
 for hostname, ip in tailscale_hosts.items():
     root.update({
         f'{hostname}.ts': [{'type': A, 'value': ip}]
+    })
+
+### cnames for tailscale hosts
+
+tailscale_cnames = {
+    'music': 'yavin',
+}
+
+for hostname, target in tailscale_cnames.items():
+    root.update({
+        hostname: [{'type': CNAME, 'value': f'{target}.ts.subtlecoolness.com.'}]
     })
 
 ### github pages
