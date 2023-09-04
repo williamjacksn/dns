@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Compile Octocat DNS settings
         run: docker compose run --no-TTY --user="$(id -u):$(id -g)" gen
       - name: Sync dry run
