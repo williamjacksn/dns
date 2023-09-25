@@ -143,14 +143,17 @@ root.update({
     }]
 })
 
-### local pi-hole
+### local
 
-root.update({
-    'adblock': [{
-        'type': A,
-        'value': '192.168.4.4',
-    }]
-})
+local_hostnames = {
+    'adblock': '192.168.4.4',
+    'dagobah.sambuca': '192.168.4.94',
+}
+
+for hostname, ip in local_hostnames.items():
+    root.update({
+        hostname: [{'type': A, 'value': ip}]
+    })
 
 ### sendgrid
 
