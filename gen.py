@@ -156,14 +156,11 @@ for hostname, ip in local_hostnames.items():
         hostname: [{'type': A, 'value': ip}]
     })
 
-### syncthing
+### syncthing is always local
 
-for hostname in [
-    'dagobah',
-]:
-    root.update({
-        f'syncthing.{hostname}': [{'type': A, 'value': '127.0.0.1'}]
-    })
+root.update({
+    'syncthing': [{'type': A, 'value': '127.0.0.1'}]
+})
 
 ### sendgrid
 
