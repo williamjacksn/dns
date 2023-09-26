@@ -162,7 +162,7 @@ for hostname in [
     'dagobah',
 ]:
     root.update({
-        f'syncthing.{hostname}.sambuca': [{'type': A, 'value': '127.0.0.1'}]
+        f'syncthing.{hostname}': [{'type': A, 'value': '127.0.0.1'}]
     })
 
 ### sendgrid
