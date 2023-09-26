@@ -156,6 +156,15 @@ for hostname, ip in local_hostnames.items():
         hostname: [{'type': A, 'value': ip}]
     })
 
+### syncthing
+
+for hostname in [
+    'dagobah',
+]:
+    root.update({
+        f'syncthing.{hostname}.sambuca': [{'type': A, 'value': '127.0.0.1'}]
+    })
+
 ### sendgrid
 
 sendgrid_cnames = {
