@@ -8,7 +8,7 @@
 
 certifi==2023.7.22
     # via requests
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 dnspython==2.4.2
     # via octodns
@@ -20,7 +20,7 @@ idna==3.4
     #   requests
 natsort==8.4.0
     # via octodns
-octodns==1.1.1
+octodns==1.2.1
     # via octodns-cloudflare
 octodns-cloudflare==0.0.3
     # via -r requirements.in
@@ -32,5 +32,5 @@ requests==2.31.0
     # via octodns-cloudflare
 six==1.16.0
     # via python-dateutil
-urllib3==2.0.5
+urllib3==2.0.6
     # via requests
