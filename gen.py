@@ -86,7 +86,6 @@ tailscale_hosts = {
     'jakku': '100.110.210.43',  # personal notebook
     'mandalore': '100.75.215.67',  # rebecca desktop
     'tatooine': '100.116.13.60',  # raspberry pi
-    'yavin': '100.120.247.119',  # vostro
 }
 
 for hostname, ip in tailscale_hosts.items():
