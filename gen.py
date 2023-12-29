@@ -187,6 +187,15 @@ root.update({
     }]
 })
 
+### bluesky social
+
+root.update({
+    '_atproto': [{
+        'type': TXT,
+        'value': 'did=did:plc:yypsrghmekhc7wz6lwpkxsqd',
+    }]
+})
+
 with open('config/subtlecoolness.com.yaml', 'w') as f:
     json.dump(root, f, indent=2, sort_keys=True)
 
