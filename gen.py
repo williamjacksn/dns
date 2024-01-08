@@ -191,11 +191,13 @@ root.update({
 ### bluesky social
 
 root.update({
-    '_atproto.bluesky': [
+    '_atproto': [
         {
             'type': TXT,
             'value': 'did=did:plc:yypsrghmekhc7wz6lwpkxsqd',
         },
+    ],
+    'bluesky': [
         {
             # https://bsky.app/profile/jacob.gold/post/3kh6re46yd42k
             #
@@ -203,8 +205,12 @@ root.update({
             # you can set your domain to be a CNAME of `redirect.bsky.app`
             # and we'll redirect your domain to your bsky profile URL.
             #
-            # Disclaimer: this is an experimental feature and may be removed
-            # if we run into problems with it, but hopefully not!
+            # https://bsky.app/profile/jacob.gold/post/3kh6rnpdzmp2v
+            #
+            # You can also use "bsky.example.com" -> "redirect.bsky.app"
+            # or "bluesky.example.com" -> "redirect.bsky.app" and we'll
+            # strip off the "bsky" or "bluesky" prefix when redirecting
+            # to your profile.
             'type': CNAME,
             'value': 'redirect.bsky.app.',
         },
