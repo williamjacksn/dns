@@ -191,7 +191,7 @@ root.update({
 ### bluesky social
 
 root.update({
-    '_atproto': [{
+    '_atproto.bluesky': [{
         'type': TXT,
         'value': 'did=did:plc:yypsrghmekhc7wz6lwpkxsqd',
     }]
