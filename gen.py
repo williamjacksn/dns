@@ -149,6 +149,7 @@ root.update({
 local_hostnames = {
     'adblock': '192.168.4.4',
     'dagobah.sambuca': '192.168.4.94',
+    'tatooine.sambuca': '192.168.4.4',
 }
 
 for hostname, ip in local_hostnames.items():
