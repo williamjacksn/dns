@@ -191,10 +191,24 @@ root.update({
 ### bluesky social
 
 root.update({
-    '_atproto.bluesky': [{
-        'type': TXT,
-        'value': 'did=did:plc:yypsrghmekhc7wz6lwpkxsqd',
-    }]
+    '_atproto.bluesky': [
+        {
+            'type': TXT,
+            'value': 'did=did:plc:yypsrghmekhc7wz6lwpkxsqd',
+        },
+        {
+            # https://bsky.app/profile/jacob.gold/post/3kh6re46yd42k
+            #
+            # Experimental feature for those comfortable with DNS,
+            # you can set your domain to be a CNAME of `redirect.bsky.app`
+            # and we'll redirect your domain to your bsky profile URL.
+            #
+            # Disclaimer: this is an experimental feature and may be removed
+            # if we run into problems with it, but hopefully not!
+            'type': CNAME,
+            'value': 'redirect.bsky.app',
+        },
+    ]
 })
 
 with open('config/subtlecoolness.com.yaml', 'w') as f:
