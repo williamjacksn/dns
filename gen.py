@@ -206,7 +206,7 @@ root.update({
             # Disclaimer: this is an experimental feature and may be removed
             # if we run into problems with it, but hopefully not!
             'type': CNAME,
-            'value': 'redirect.bsky.app',
+            'value': 'redirect.bsky.app.',
         },
     ]
 })
