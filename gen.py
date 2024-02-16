@@ -234,7 +234,6 @@ root = {
         'config': {
             'class': 'octodns.provider.yaml.YamlProvider',
             'directory': './config',
-            'default_ttl': 300,
             'enforce_order': False,
         },
         'cloudflare': {
