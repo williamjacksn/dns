@@ -158,6 +158,15 @@ for hostname, ip in local_hostnames.items():
         hostname: [{'type': A, 'value': ip}]
     })
 
+local_cnames = {
+    'papers': 'dagobah',
+}
+
+for hostname, target in local_cnames.items():
+    root.update({
+        f'{hostname}.sambuca': [{'type': CNAME, 'value': f'{target}.sambuca.subtlecoolness.com.'}]
+    })
+
 ### syncthing is always local
 
 root.update({
