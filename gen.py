@@ -159,6 +159,7 @@ for hostname, ip in local_hostnames.items():
     })
 
 local_cnames = {
+    'money': 'dagobah',
     'papers': 'dagobah',
 }
 
