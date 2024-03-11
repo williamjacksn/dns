@@ -81,8 +81,8 @@ for name in [
 tailscale_hosts = {
     'coruscant': '100.67.215.117',  # linode server
     'dagobah': '100.95.127.66',  # thinkcentre
+    'endor': '100.88.180.27',  # iphone
     'felucia': '100.66.139.64',  # ipad
-    'iego': '100.107.200.103',  # iphone
     'jakku': '100.110.210.43',  # personal notebook
     'mandalore': '100.75.215.67',  # rebecca desktop
     'tatooine': '100.116.13.60',  # raspberry pi
