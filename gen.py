@@ -160,7 +160,9 @@ for hostname, ip in local_hostnames.items():
 
 local_cnames = {
     'money': 'dagobah',
+    'music': 'dagobah',
     'papers': 'dagobah',
+    'photos': 'dagobah',
 }
 
 for hostname, target in local_cnames.items():
