@@ -67,6 +67,7 @@ for name in [
     'echoip',
     'groupmemail',
     'groupmemail-test',
+    'jour',
     'junk',
     'lpb',
     'rss',
