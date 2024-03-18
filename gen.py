@@ -146,7 +146,7 @@ root.update({
     }]
 })
 
-### local
+### home network
 
 local_hostnames = {
     'adblock': '192.168.4.4',
@@ -171,7 +171,7 @@ for hostname, target in local_cnames.items():
         f'{hostname}.sambuca': [{'type': CNAME, 'value': f'{target}.sambuca.subtlecoolness.com.'}]
     })
 
-### syncthing is always local
+### syncthing is always localhost
 
 root.update({
     'syncthing': [{'type': A, 'value': '127.0.0.1'}]
