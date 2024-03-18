@@ -97,7 +97,6 @@ for hostname, ip in tailscale_hosts.items():
 ### cnames for tailscale hosts
 
 tailscale_cnames = {
-    'money': 'dagobah',
     'music': 'dagobah',
     'papers': 'dagobah',
     'photos': 'dagobah',
@@ -160,7 +159,6 @@ for hostname, ip in local_hostnames.items():
     })
 
 local_cnames = {
-    'money': 'dagobah',
     'music': 'dagobah',
     'papers': 'dagobah',
     'photos': 'dagobah',
