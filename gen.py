@@ -84,7 +84,6 @@ tailscale_hosts = {
     'dagobah': '100.95.127.66',  # thinkcentre
     'endor': '100.88.180.27',  # iphone
     'felucia': '100.66.139.64',  # ipad
-    'jakku': '100.110.210.43',  # personal notebook
     'mandalore': '100.75.215.67',  # rebecca desktop
     'tatooine': '100.116.13.60',  # raspberry pi
 }
