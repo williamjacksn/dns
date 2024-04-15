@@ -22,7 +22,7 @@ natsort==8.4.0
     # via octodns
 octodns==1.6.1
     # via octodns-cloudflare
-octodns-cloudflare==0.0.4
+octodns-cloudflare==0.0.5
     # via -r requirements.in
 python-dateutil==2.9.0.post0
     # via octodns
