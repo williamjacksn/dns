@@ -12,6 +12,12 @@ on:
     paths:
       - gen.py
   workflow_dispatch:
+    inputs:
+      dry_run:
+        default: true
+        description: Perform a dry run, do not actually change and DNS records
+        type: boolean
+      
 
 jobs:
   compile:
@@ -23,8 +29,8 @@ jobs:
       - name: Compile Octocat DNS settings
         run: docker compose run --no-TTY --user="$(id -u):$(id -g)" gen
       - name: Sync dry run
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
         run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync
       - name: Sync for real
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)
         run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync-doit
