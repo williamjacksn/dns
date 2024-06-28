@@ -15,7 +15,7 @@ on:
     inputs:
       dry_run:
         default: true
-        description: Perform a dry run, do not actually change and DNS records
+        description: Perform a dry run, do not actually change any DNS records
         type: boolean
       
 
