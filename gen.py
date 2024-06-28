@@ -112,6 +112,7 @@ pages_sites = {
     'accio': 'jackson-family',
     'andromeda': 'williamjacksn',
     'blog': 'williamjacksn',
+    'he-gave-me-my-ears': 'jackson-family',
     'molly': 'jackson-family',
     'obs': 'williamjacksn',
     'python-rainwave-client': 'williamjacksn',
@@ -134,15 +135,6 @@ for hostname, alias in fly_io_sites.items():
     root.update({
         hostname: [{'type': CNAME, 'value': f'{alias}.fly.dev.'}]
     })
-
-### blogger
-
-root.update({
-    'he-gave-me-my-ears': [{
-        'type': CNAME,
-        'value': 'ghs.google.com.',
-    }]
-})
 
 ### home network
 
