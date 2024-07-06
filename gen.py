@@ -113,6 +113,7 @@ pages_sites = {
     'andromeda': 'williamjacksn',
     'blog': 'williamjacksn',
     'he-gave-me-my-ears': 'jackson-family',
+    'menu': 'williamjacksn',
     'molly': 'jackson-family',
     'obs': 'williamjacksn',
     'python-rainwave-client': 'williamjacksn',
