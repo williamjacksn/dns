@@ -53,6 +53,10 @@ root.update({
     ]
 })
 
+### domain verification for discord
+
+root.update({'_discord': [{'type': TXT, 'value': 'dh=3704a9cd0c5ea23c3cb60cf61aec9159c912746b'}]})
+
 ### cname to coruscant
 
 cname_coruscant = {
