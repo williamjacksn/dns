@@ -100,6 +100,7 @@ for hostname, ip in tailscale_hosts.items():
 ### cnames for tailscale hosts
 
 tailscale_cnames = {
+    'code': 'dagobah',
     'music': 'dagobah',
     'papers': 'dagobah',
     'photos': 'dagobah',
