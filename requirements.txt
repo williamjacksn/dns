@@ -10,7 +10,7 @@ certifi==2024.8.30
     # via requests
 charset-normalizer==3.3.2
     # via requests
-dnspython==2.6.1
+dnspython==2.7.0
     # via octodns
 fqdn==1.5.1
     # via octodns
