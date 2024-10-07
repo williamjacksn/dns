@@ -20,7 +20,7 @@ idna==3.10
     #   requests
 natsort==8.4.0
     # via octodns
-octodns==1.9.1
+octodns==1.10.0
     # via octodns-cloudflare
 octodns-cloudflare==0.0.7
     # via -r requirements.in
