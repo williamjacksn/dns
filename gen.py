@@ -67,6 +67,7 @@ cname_coruscant = {
 for name in [
     '404',
     'acciojacksons',
+    'birthdayfeed',
     'cal',
     'echoip',
     'groupmemail',
@@ -129,17 +130,6 @@ pages_sites = {
 for hostname, target_org in pages_sites.items():
     root.update({
         hostname: [{'type': CNAME, 'value': f'{target_org}.github.io.'}]
-    })
-
-### fly.io
-
-fly_io_sites = {
-    'birthdayfeed': 'birthdayfeed',
-}
-
-for hostname, alias in fly_io_sites.items():
-    root.update({
-        hostname: [{'type': CNAME, 'value': f'{alias}.fly.dev.'}]
     })
 
 ### home network
