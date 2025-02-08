@@ -104,7 +104,7 @@ tailscale_cnames = {
     'music': 'dagobah',
     'papers': 'dagobah',
     'photos': 'dagobah',
-    'warrior': 'dagobah',
+    'videos': 'dagobah',
 }
 
 for hostname, target in tailscale_cnames.items():
@@ -149,7 +149,7 @@ local_cnames = {
     'music': 'dagobah',
     'papers': 'dagobah',
     'photos': 'dagobah',
-    'warrior': 'dagobah',
+    'videos': 'dagobah',
 }
 
 for hostname, target in local_cnames.items():
