@@ -92,6 +92,7 @@ for name in [
     "jour",
     "junk",
     "lpb",
+    "nocodb",
     "rss",
     "wiki",
     "www",
