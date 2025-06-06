@@ -3,7 +3,7 @@ services:
     entrypoint:
       - /opt/octodns/env/bin/python
       - /octodns/gen.py
-    image: octodns/cloudflare:2025.05
+    image: octodns/cloudflare:2025.06
     init: true
     volumes:
       - ./:/octodns
@@ -12,7 +12,7 @@ services:
   shell:
     entrypoint:
       - /usr/bin/bash
-    image: octodns/cloudflare:2025.05
+    image: octodns/cloudflare:2025.06
     init: true
     volumes:
       - ./:/octodns
@@ -23,7 +23,7 @@ services:
       - /opt/octodns/env/bin/octodns-sync
       - --config-file
       - ./config/production.yaml
-    image: octodns/cloudflare:2025.05
+    image: octodns/cloudflare:2025.06
     init: true
     volumes:
       - ./:/octodns
@@ -35,7 +35,7 @@ services:
       - --config-file
       - ./config/production.yaml
       - --doit
-    image: octodns/cloudflare:2025.05
+    image: octodns/cloudflare:2025.06
     init: true
     volumes:
       - ./:/octodns
