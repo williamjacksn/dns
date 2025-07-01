@@ -1,42 +1,66 @@
-name: Compile Octocat DNS settings and deploy to production
-
-on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - gen.py
-  push:
-    branches:
-      - main
-    paths:
-      - gen.py
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        default: true
-        description: Perform a dry run, do not actually change any DNS records
-        type: boolean
-      
-
-jobs:
-  compile:
-    name: Compile Octocat DNS settings
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-      - name: Install uv
-        run: sh ci/install-uv.sh
-      - name: Compile Octocat DNS settings
-        run: sh ci/gen-config.sh
-      - name: Sync dry run
-        if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
-        env:
-          CLOUDFLARE_TOKEN: ${{ secrets.cloudflare_token }}
-        run: sh ci/dry-run.sh
-      - name: Sync for real
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)
-        env:
-          CLOUDFLARE_TOKEN: ${{ secrets.cloudflare_token }}
-        run: sh ci/deploy-dns.sh
+{
+  "jobs": {
+    "compile": {
+      "name": "Compile and deploy octoDNS settings",
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "name": "Check out the repository",
+          "uses": "actions/checkout@v4"
+        },
+        {
+          "name": "Install uv",
+          "run": "sh ci/install-uv.sh"
+        },
+        {
+          "name": "Compile octoDNS settings",
+          "run": "sh ci/gen-config.sh"
+        },
+        {
+          "env": {
+            "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
+          },
+          "if": "github.even_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
+          "name": "Sync dry run",
+          "run": "sh ci/dry-run.sh"
+        },
+        {
+          "env": {
+            "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
+          },
+          "if": "github.even_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
+          "name": "Sync for real",
+          "run": "sh ci/deploy-dns.sh"
+        }
+      ]
+    }
+  },
+  "name": "Compile octoDNS settings and deploy to production",
+  "on": {
+    "pull_request": {
+      "branches": [
+        "main"
+      ],
+      "paths": [
+        "gen.py"
+      ]
+    },
+    "push": {
+      "branches": [
+        "main"
+      ],
+      "paths": [
+        "gen.py"
+      ]
+    },
+    "workflow_dispatch": {
+      "inputs": {
+        "dry_run": {
+          "default": true,
+          "description": "Perform a dry run, do not actually change any DNS records",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
