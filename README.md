@@ -1,6 +1,6 @@
 # dns
 
 1. Update `gen.py` to change DNS configuration.
-2. `docker compose run gen` to generate configuration files for octodns.
-3. `docker compose run sync` to see changes.
-4. `docker compose run sync-doit` to apply changes.
+2. `uv run gen.py` to generate configuration files for octodns.
+3. `uv run octodns-sync --config-file config/production.yaml` to see changes.
+4. `uv run octodns-sync --config-file config/production.yaml --doit` to apply changes.
