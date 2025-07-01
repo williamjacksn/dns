@@ -26,11 +26,17 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+      - name: Install uv
+        run: sh ci/install-uv.sh
       - name: Compile Octocat DNS settings
-        run: docker compose run --no-TTY --user="$(id -u):$(id -g)" gen
+        run: sh ci/gen-config.sh
       - name: Sync dry run
         if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
-        run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync
+        env:
+          CLOUDFLARE_TOKEN: ${{ secrets.cloudflare_token }}
+        run: sh ci/dry-run.sh
       - name: Sync for real
         if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)
-        run: docker compose run --env CLOUDFLARE_TOKEN=${{ secrets.cloudflare_token }} --no-TTY sync-doit
+        env:
+          CLOUDFLARE_TOKEN: ${{ secrets.cloudflare_token }}
+        run: sh ci/deploy-dns.sh
