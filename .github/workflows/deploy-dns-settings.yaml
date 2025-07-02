@@ -1,7 +1,7 @@
 {
   "jobs": {
-    "compile": {
-      "name": "Compile and deploy octoDNS settings",
+    "deploy": {
+      "name": "Deploy DNS configuration",
       "runs-on": "ubuntu-latest",
       "steps": [
         {
@@ -13,7 +13,7 @@
           "run": "sh ci/install-uv.sh"
         },
         {
-          "name": "Compile octoDNS settings",
+          "name": "Generate DNS configuration",
           "run": "sh ci/gen-config.sh"
         },
         {
@@ -21,7 +21,7 @@
             "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
           },
           "if": "github.even_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
-          "name": "Sync dry run",
+          "name": "Dry run deploy",
           "run": "sh ci/dry-run.sh"
         },
         {
@@ -29,13 +29,13 @@
             "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
           },
           "if": "github.even_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
-          "name": "Sync for real",
+          "name": "Live deploy",
           "run": "sh ci/deploy-dns.sh"
         }
       ]
     }
   },
-  "name": "Compile octoDNS settings and deploy to production",
+  "name": "Deploy DNS configuration",
   "on": {
     "pull_request": {
       "branches": [
