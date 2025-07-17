@@ -1,9 +1,19 @@
 import gen
+import pathlib
+
+this_file = pathlib.PurePosixPath(
+    pathlib.Path(__file__).relative_to(pathlib.Path().resolve())
+)
+
+target = ".github/workflows/deploy-dns-settings.yaml"
 
 gen_py = {"branches": ["main"], "paths": ["gen.py"]}
 cf_env = {"CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"}
 
-workflow = {
+content = {
+    "env": {
+        "description": f"This workflow ({target}) was generated from {this_file}",
+    },
     "name": "Deploy DNS configuration",
     "on": {
         "pull_request": gen_py,
@@ -28,13 +38,13 @@ workflow = {
                 {"name": "Generate DNS configuration", "run": "sh ci/gen-config.sh"},
                 {
                     "name": "Dry run deploy",
-                    "if": "github.even_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
+                    "if": "github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
                     "env": cf_env,
                     "run": "sh ci/dry-run.sh",
                 },
                 {
                     "name": "Live deploy",
-                    "if": "github.even_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
+                    "if": "github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
                     "env": cf_env,
                     "run": "sh ci/deploy-dns.sh",
                 },
@@ -44,4 +54,4 @@ workflow = {
 }
 
 
-gen.gen(workflow, ".github/workflows/deploy-dns-settings.yaml")
+gen.gen(content, target)

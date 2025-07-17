@@ -1,4 +1,7 @@
 {
+  "env": {
+    "description": "This workflow (.github/workflows/deploy-dns-settings.yaml) was generated from ci/gen-github-workflows.py"
+  },
   "jobs": {
     "deploy": {
       "name": "Deploy DNS configuration",
@@ -20,7 +23,7 @@
           "env": {
             "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
           },
-          "if": "github.even_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
+          "if": "github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
           "name": "Dry run deploy",
           "run": "sh ci/dry-run.sh"
         },
@@ -28,7 +31,7 @@
           "env": {
             "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
           },
-          "if": "github.even_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
+          "if": "github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
           "name": "Live deploy",
           "run": "sh ci/deploy-dns.sh"
         }
