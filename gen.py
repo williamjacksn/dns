@@ -25,11 +25,13 @@ root.update(
             {"type": AAAA, "value": CORUSCANT_IPV6},
             {
                 "type": MX,
-                "values": [
-                    {"exchange": "coruscant.subtlecoolness.com.", "preference": 10}
-                ],
+                "values": [{"exchange": "mail.subtlecoolness.com.", "preference": 10}],
             },
-        ]
+        ],
+        "mail": [
+            {"type": A, "value": CORUSCANT_IPV4},
+            {"type": AAAA, "value": CORUSCANT_IPV6},
+        ],
     }
 )
 
