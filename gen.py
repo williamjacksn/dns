@@ -136,6 +136,7 @@ pages_sites = {
     "accio": "jackson-family",
     "andromeda": "williamjacksn",
     "blog": "williamjacksn",
+    "ellie": "jackson-family",
     "he-gave-me-my-ears": "jackson-family",
     "menu": "williamjacksn",
     "molly": "jackson-family",
