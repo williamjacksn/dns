@@ -33,7 +33,7 @@ content = {
             "name": "Deploy DNS configuration",
             "runs-on": "ubuntu-latest",
             "steps": [
-                {"name": "Check out the repository", "uses": "actions/checkout@v4"},
+                {"name": "Check out the repository", "uses": "actions/checkout@v5"},
                 {"name": "Install uv", "run": "sh ci/install-uv.sh"},
                 {"name": "Generate DNS configuration", "run": "sh ci/gen-config.sh"},
                 {
