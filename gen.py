@@ -138,6 +138,7 @@ pages_sites = {
     "blog": "williamjacksn",
     "ellie": "jackson-family",
     "he-gave-me-my-ears": "jackson-family",
+    "htmx": "williamjacksn",
     "menu": "williamjacksn",
     "molly": "jackson-family",
     "obs": "williamjacksn",
