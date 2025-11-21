@@ -1,69 +1,45 @@
-{
-  "env": {
-    "description": "This workflow (.github/workflows/deploy-dns-settings.yaml) was generated from ci/gen-github-workflows.py"
-  },
-  "jobs": {
-    "deploy": {
-      "name": "Deploy DNS configuration",
-      "runs-on": "ubuntu-latest",
-      "steps": [
-        {
-          "name": "Check out the repository",
-          "uses": "actions/checkout@v5"
-        },
-        {
-          "name": "Install uv",
-          "run": "sh ci/install-uv.sh"
-        },
-        {
-          "name": "Generate DNS configuration",
-          "run": "sh ci/gen-config.sh"
-        },
-        {
-          "env": {
-            "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
-          },
-          "if": "github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)",
-          "name": "Dry run deploy",
-          "run": "sh ci/dry-run.sh"
-        },
-        {
-          "env": {
-            "CLOUDFLARE_TOKEN": "${{ secrets.cloudflare_token }}"
-          },
-          "if": "github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)",
-          "name": "Live deploy",
-          "run": "sh ci/deploy-dns.sh"
-        }
-      ]
-    }
-  },
-  "name": "Deploy DNS configuration",
-  "on": {
-    "pull_request": {
-      "branches": [
-        "main"
-      ],
-      "paths": [
-        "gen.py"
-      ]
-    },
-    "push": {
-      "branches": [
-        "main"
-      ],
-      "paths": [
-        "gen.py"
-      ]
-    },
-    "workflow_dispatch": {
-      "inputs": {
-        "dry_run": {
-          "default": true,
-          "description": "Perform a dry run, do not actually change any DNS records",
-          "type": "boolean"
-        }
-      }
-    }
-  }
-}
+name: Deploy DNS configuration
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - gen.py
+  push:
+    branches:
+      - main
+    paths:
+      - gen.py
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        default: true
+        description: Perform a dry run, do not actually change any DNS records
+        type: boolean
+
+jobs:
+  deploy:
+    name: Deploy DNS configuration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+
+      - name: Install uv
+        run: sh ci/install-uv.sh
+
+      - name: Generate DNS configuration
+        run: sh ci/gen-config.sh
+
+      - name: Dry run deploy
+        if: "github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)"
+        run: sh ci/dry-run.sh
+        env:
+          CLOUDFLARE_TOKEN: "${{ secrets.cloudflare_token }}"
+
+      - name: Live deploy
+        if: "github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && ! inputs.dry_run)"
+        run: sh ci/deploy-dns.sh
+        env:
+          CLOUDFLARE_TOKEN: "${{ secrets.cloudflare_token }}"
