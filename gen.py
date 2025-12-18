@@ -181,17 +181,6 @@ for hostname, target in local_cnames.items():
 
 root.update({"syncthing": [{"type": A, "value": "127.0.0.1"}]})
 
-### sendgrid
-
-sendgrid_cnames = {
-    "em8786": "u25937580.wl081.sendgrid.net.",
-    "s1._domainkey": "s1.domainkey.u25937580.wl081.sendgrid.net.",
-    "s2._domainkey": "s2.domainkey.u25937580.wl081.sendgrid.net.",
-}
-
-for hostname, value in sendgrid_cnames.items():
-    root.update({hostname: [{"type": CNAME, "value": value}]})
-
 ### outboundsmtp (https://www.outboundsmtp.com/)
 # outboundsmtp is a simple smtp service that I set up because I wanted to add smtp settings to my home hp officejet
 # scanner. I would have used sendgrid, but the scanner had a length limit for the smtp password and sendgrid's api key
