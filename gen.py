@@ -35,6 +35,13 @@ root.update(
     }
 )
 
+### scarif
+# this machine is hosted in oracle cloud
+
+SCARIF_IPV4 = "163.192.112.100"
+
+root.update({"scarif": [{"type": A, "value": SCARIF_IPV4}]})
+
 ### domain root
 
 root_mx = {
