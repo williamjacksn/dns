@@ -100,6 +100,7 @@ for name in [
     "groupmemail-test",
     "jour",
     "junk",
+    "kuma",
     "lpb",
     "nocodb",
     "rss",
