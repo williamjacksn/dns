@@ -42,6 +42,15 @@ SCARIF_IPV4 = "163.192.112.100"
 
 root.update({"scarif": [{"type": A, "value": SCARIF_IPV4}]})
 
+### cname to scarif
+
+cname_scarif = {"type": CNAME, "value": "scarif.subtlecoolness.com."}
+
+for name in [
+    "kuma",
+]:
+    root.update({name: [cname_scarif]})
+
 ### domain root
 
 root_mx = {
@@ -100,7 +109,6 @@ for name in [
     "groupmemail-test",
     "jour",
     "junk",
-    "kuma",
     "lpb",
     "nocodb",
     "rss",
