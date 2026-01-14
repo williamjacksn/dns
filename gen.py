@@ -118,6 +118,7 @@ tailscale_hosts = {
     "felucia": "100.66.139.64",  # ipad
     "kessel": "100.112.154.57",  # iphone
     "mandalore": "100.75.215.67",  # rebecca desktop
+    "scarif": "100.101.205.124",
     "tatooine": "100.116.13.60",  # raspberry pi
 }
 
