@@ -101,7 +101,6 @@ root.update(
 cname_coruscant = {"type": CNAME, "value": "coruscant.subtlecoolness.com."}
 
 for name in [
-    "404",
     "acciojacksons",
     "cal",
     "echoip",
