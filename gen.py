@@ -156,6 +156,7 @@ pages_sites = {
     "he-gave-me-my-ears": "jackson-family",
     "htmx": "williamjacksn",
     "menu": "williamjacksn",
+    "mhs-chamber-singers-spring-2000", "williamjacksn",
     "molly": "jackson-family",
     "obs": "williamjacksn",
     "python-rainwave-client": "williamjacksn",
