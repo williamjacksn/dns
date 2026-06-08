@@ -250,6 +250,58 @@ with open("config/subtlecoolness.com.yaml", "w") as f:
 
 # end subtlecoolness.com.yaml
 
+### valerocomingsoon.com.yaml
+
+root = {
+    "": [
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": "ALIAS",
+            "value": "valerocomingsoon.github.io.",
+        },
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": MX,
+            "values": [
+                {"exchange": "route1.mx.cloudflare.net.", "preference": 10},
+                {"exchange": "route3.mx.cloudflare.net.", "preference": 60},
+                {"exchange": "route2.mx.cloudflare.net.", "preference": 80},
+            ],
+        },
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": TXT,
+            "value": "v=spf1 include:_spf.mx.cloudflare.net ~all",
+        },
+    ],
+    "_dmarc": [
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": TXT,
+            "value": "v=DMARC1\\; p=none\\; rua=mailto:1837ecd149ce40a48e55097ae29d6dc3@dmarc-reports.cloudflare.net",
+        }
+    ],
+    "cf2024-1._domainkey": [
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": TXT,
+            "value": "v=DKIM1\\; h=sha256\\; k=rsa\\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB",
+        }
+    ],
+    "www": [
+        {
+            "octodns": {"cloudflare": {"auto-ttl": True}},
+            "type": CNAME,
+            "value": "valerocomingsoon.github.io.",
+        }
+    ],
+}
+
+with open("config/valerocomingsoon.com.yaml", "w") as f:
+    json.dump(root, f, indent=2, sort_keys=True)
+
+# end valerocomingsoon.com.yaml
+
 ### production.yaml
 
 root = {
@@ -271,9 +323,7 @@ root = {
     },
 }
 
-zone_names = [
-    "subtlecoolness.com.",
-]
+zone_names = ["subtlecoolness.com.", "valerocomingsoon.com."]
 
 zones = {
     zone_name: {
