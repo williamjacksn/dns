@@ -49,6 +49,7 @@ cname_scarif = {"type": CNAME, "value": "scarif.subtlecoolness.com."}
 for name in [
     "birthdayfeed",
     "kuma",
+    "lpb",
 ]:
     root.update({name: [cname_scarif]})
 
@@ -108,7 +109,6 @@ for name in [
     "groupmemail-test",
     "jour",
     "junk",
-    "lpb",
     "nocodb",
     "rss",
     "wiki",
