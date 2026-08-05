@@ -109,7 +109,6 @@ for name in [
     "groupmemail-test",
     "jour",
     "junk",
-    "nocodb",
     "rss",
     "wiki",
     "www",
