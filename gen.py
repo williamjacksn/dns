@@ -47,6 +47,7 @@ root.update({"scarif": [{"type": A, "value": SCARIF_IPV4}]})
 cname_scarif = {"type": CNAME, "value": "scarif.subtlecoolness.com."}
 
 for name in [
+    "aprw",
     "birthdayfeed",
     "kuma",
     "lpb",
