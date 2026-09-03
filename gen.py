@@ -74,7 +74,8 @@ root.update(
                 "values": [
                     "MS=ms39318768",
                     "google-site-verification=RxUAQK2lPrb8l0bltRH-OcplAFQYr-2sL3_xq-CqJxw",
-                    "v=spf1 include:outbound.mailhop.org ~all",  # mailhop.org is for outboundsmtp.com
+                    # mailhop.org is for outboundsmtp.com
+                    "v=spf1 include:outbound.mailhop.org ~all",
                 ],
             },
             {
@@ -199,16 +200,24 @@ for hostname, target in local_cnames.items():
 root.update({"syncthing": [{"type": A, "value": "127.0.0.1"}]})
 
 ### outboundsmtp (https://www.outboundsmtp.com/)
-# outboundsmtp is a simple smtp service that I set up because I wanted to add smtp settings to my home hp officejet
-# scanner. I would have used sendgrid, but the scanner had a length limit for the smtp password and sendgrid's api key
-# was too long. The password for outboundsmtp is shorter and fits within the length limit on the scanner.
+# outboundsmtp is a simple smtp service that I set up because I wanted to add
+# smtp settings to my home hp officejet scanner. I would have used sendgrid, but
+# the scanner had a length limit for the smtp password and sendgrid's api key was
+# too long. The password for outboundsmtp is shorter and fits within the length
+# limit on the scanner.
 
 root.update(
     {
         "duo-1651460024648-8e3e5c59._domainkey": [
             {
                 "type": TXT,
-                "value": "v=DKIM1\\; k=rsa\\; s=email\\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLWiBESFejMDydnDE7ERkklPgnUsmXgpOQohtvBaEaNc+KVkXJ+1zxTuQmRzKIdraep9CQ9sz/l2+cymh2wszV/bWBC7AfaRUcSUNd/R0DRUJuomIgL2kHfI2sXI2dVANCnYek3oYfPbm5LcJRY3v6oHUbGJ+Y8iyds6DcyVBQKwIDAQAB",
+                "value": (
+                    "v=DKIM1\\; k=rsa\\; s=email\\; "
+                    "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLWiBESFejMDydnDE7"
+                    "ERkklPgnUsmXgpOQohtvBaEaNc+KVkXJ+1zxTuQmRzKIdraep9CQ9sz/"
+                    "l2+cymh2wszV/bWBC7AfaRUcSUNd/R0DRUJuomIgL2kHfI2sXI2dVANC"
+                    "nYek3oYfPbm5LcJRY3v6oHUbGJ+Y8iyds6DcyVBQKwIDAQAB"
+                ),
             }
         ]
     }
@@ -278,14 +287,27 @@ root = {
         {
             "octodns": {"cloudflare": {"auto-ttl": True}},
             "type": TXT,
-            "value": "v=DMARC1\\; p=none\\; rua=mailto:1837ecd149ce40a48e55097ae29d6dc3@dmarc-reports.cloudflare.net",
+            "value": (
+                "v=DMARC1\\; p=none\\; "
+                "rua=mailto:1837ecd149ce40a48e55097ae29d6dc3"
+                "@dmarc-reports.cloudflare.net"
+            ),
         }
     ],
     "cf2024-1._domainkey": [
         {
             "octodns": {"cloudflare": {"auto-ttl": True}},
             "type": TXT,
-            "value": "v=DKIM1\\; h=sha256\\; k=rsa\\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB",
+            "value": (
+                "v=DKIM1\\; h=sha256\\; k=rsa\\; "
+                "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48I"
+                "OGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7"
+                "sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTp"
+                "eiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3J"
+                "J78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioC"
+                "vELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7"
+                "p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB"
+            ),
         }
     ],
     "www": [
