@@ -166,7 +166,7 @@ wheels = [
 
 [[package]]
 name = "octodns"
-version = "1.17.0"
+version = "1.22.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dnspython" },
@@ -176,9 +176,9 @@ dependencies = [
     { name = "python-dateutil" },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6e/54/ae4ca569227e34102c2ac80bdcf795052cce20dd9407fd66c1b4ed7e07f5/octodns-1.17.0.tar.gz", hash = "sha256:76087921c14cab2a31dfb6da3ee3a1a8d741f509a409656fe198afa05095d7d1", size = 991911, upload-time = "2026-05-06T21:42:19.931Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/dc/7459cfb9f3bf85aa541b1b3283f0d9749e82be3d70b03129409b72b4f0e2/octodns-1.22.0.tar.gz", hash = "sha256:b880ece209a19f33edc05ec13db55abee844e4a851978a19c48b4e3ef317bbf0", size = 1046974, upload-time = "2026-08-15T20:51:08.161Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/48/bb/a10a66ae7d0acc48688535ca02409de4ca541d55089589fc3b64f20e4937/octodns-1.17.0-py3-none-any.whl", hash = "sha256:b9da2db8b3ec42b106005d39e96839082138b6797f7cc3d258ad84a23f32e113", size = 136576, upload-time = "2026-05-06T21:42:18.073Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/99/b9f024a5fdd12088d975b6828f143b429b41938019f119db371102ae015d/octodns-1.22.0-py3-none-any.whl", hash = "sha256:dfb7b529ec4e9eb2c08a03af15e8e48d7a67ffda7b930beccf7203e64018cad8", size = 165520, upload-time = "2026-08-15T20:51:06.622Z" },
 ]
 
 [[package]]
