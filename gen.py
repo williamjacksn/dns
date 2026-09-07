@@ -181,6 +181,7 @@ for hostname, ip in local_hostnames.items():
     root.update({hostname: [{"type": A, "value": ip}]})
 
 local_cnames = {
+    "fetch": "dagobah",
     "music": "dagobah",
     "papers": "dagobah",
     "photos": "dagobah",
