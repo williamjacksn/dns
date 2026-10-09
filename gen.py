@@ -136,6 +136,7 @@ for hostname, ip in tailscale_hosts.items():
 ### cnames for tailscale hosts
 
 tailscale_cnames = {
+    "books": "dagobah",
     "fetch": "dagobah",
     "music": "dagobah",
     "papers": "dagobah",
@@ -181,6 +182,7 @@ for hostname, ip in local_hostnames.items():
     root.update({hostname: [{"type": A, "value": ip}]})
 
 local_cnames = {
+    "books": "dagobah",
     "fetch": "dagobah",
     "music": "dagobah",
     "papers": "dagobah",
