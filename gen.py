@@ -51,7 +51,7 @@ for name in [
     "birthdayfeed",
     "kuma",
     "lpb",
-    "tfs",
+    "tfa",
 ]:
     root.update({name: [cname_scarif]})
 
