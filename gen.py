@@ -166,6 +166,7 @@ pages_sites = {
     "python-rainwave-client": "williamjacksn",
     "recipes": "jackson-family",
     "silly-sentences": "williamjacksn",
+    "zq": "williamjacksn",
 }
 
 for hostname, target_org in pages_sites.items():
