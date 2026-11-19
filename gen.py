@@ -8,12 +8,16 @@ CNAME = "CNAME"
 MX = "MX"
 TXT = "TXT"
 
-### subtlecoolness.com.yaml
+#
+# subtlecoolness.com.yaml
+#
 
 root = {}
 
-### coruscant
+#
+# coruscant
 # this machine is hosted in linode
+#
 
 CORUSCANT_IPV4 = "45.79.10.128"
 CORUSCANT_IPV6 = "2600:3c00::f03c:91ff:fe24:29ee"
@@ -35,14 +39,18 @@ root.update(
     }
 )
 
-### scarif
+#
+# scarif
 # this machine is hosted in oracle cloud
+#
 
 SCARIF_IPV4 = "163.192.112.100"
 
 root.update({"scarif": [{"type": A, "value": SCARIF_IPV4}]})
 
-### cname to scarif
+#
+# cname to scarif
+#
 
 cname_scarif = {"type": CNAME, "value": "scarif.subtlecoolness.com."}
 
@@ -55,7 +63,9 @@ for name in [
 ]:
     root.update({name: [cname_scarif]})
 
-### domain root
+#
+# domain root
+#
 
 root_mx = {
     "aspmx.l.google.com.": 10,
@@ -90,7 +100,9 @@ root.update(
     }
 )
 
-### domain verification for discord
+#
+# domain verification for discord
+#
 
 root.update(
     {
@@ -100,7 +112,9 @@ root.update(
     }
 )
 
-### cname to coruscant
+#
+# cname to coruscant
+#
 
 cname_coruscant = {"type": CNAME, "value": "coruscant.subtlecoolness.com."}
 
@@ -119,7 +133,9 @@ for name in [
 ]:
     root.update({name: [cname_coruscant]})
 
-### tailscale
+#
+# tailscale
+#
 
 tailscale_hosts = {
     "coruscant": "100.67.215.117",  # linode server
@@ -134,7 +150,9 @@ tailscale_hosts = {
 for hostname, ip in tailscale_hosts.items():
     root.update({f"{hostname}.ts": [{"type": A, "value": ip}]})
 
-### cnames for tailscale hosts
+#
+# cnames for tailscale hosts
+#
 
 tailscale_cnames = {
     "books": "dagobah",
@@ -150,7 +168,9 @@ for hostname, target in tailscale_cnames.items():
         {hostname: [{"type": CNAME, "value": f"{target}.ts.subtlecoolness.com."}]}
     )
 
-### github pages
+#
+# github pages
+#
 
 pages_sites = {
     "accio": "jackson-family",
@@ -166,13 +186,16 @@ pages_sites = {
     "python-rainwave-client": "williamjacksn",
     "recipes": "jackson-family",
     "silly-sentences": "williamjacksn",
+    "userscripts": "williamjacksn",
     "zq": "williamjacksn",
 }
 
 for hostname, target_org in pages_sites.items():
     root.update({hostname: [{"type": CNAME, "value": f"{target_org}.github.io."}]})
 
-### home network
+#
+# home network
+#
 
 local_hostnames = {
     "adblock": "192.168.4.4",
@@ -201,16 +224,20 @@ for hostname, target in local_cnames.items():
         }
     )
 
-### syncthing is always localhost
+#
+# syncthing is always localhost
+#
 
 root.update({"syncthing": [{"type": A, "value": "127.0.0.1"}]})
 
-### outboundsmtp (https://www.outboundsmtp.com/)
+#
+# outboundsmtp (https://www.outboundsmtp.com/)
 # outboundsmtp is a simple smtp service that I set up because I wanted to add
 # smtp settings to my home hp officejet scanner. I would have used sendgrid, but
 # the scanner had a length limit for the smtp password and sendgrid's api key was
 # too long. The password for outboundsmtp is shorter and fits within the length
 # limit on the scanner.
+#
 
 root.update(
     {
@@ -229,7 +256,9 @@ root.update(
     }
 )
 
-### bluesky social
+#
+# bluesky social
+#
 
 root.update(
     {
@@ -265,7 +294,9 @@ with open("config/subtlecoolness.com.yaml", "w") as f:
 
 # end subtlecoolness.com.yaml
 
-### valerocomingsoon.com.yaml
+#
+# valerocomingsoon.com.yaml
+#
 
 root = {
     "": [
@@ -330,7 +361,9 @@ with open("config/valerocomingsoon.com.yaml", "w") as f:
 
 # end valerocomingsoon.com.yaml
 
-### production.yaml
+#
+# production.yaml
+#
 
 root = {
     "#": "generated with gen.py",
@@ -365,4 +398,4 @@ root.update({"zones": zones})
 with open("config/production.yaml", "w") as f:
     json.dump(root, f, indent=2, sort_keys=True)
 
-### end production.yaml
+# end production.yaml
